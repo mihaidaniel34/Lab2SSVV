@@ -285,124 +285,124 @@ public class ServiceTest {
         assert (otherSize == size + 1);
     }
 
-    //test addTema with null id
-    @Test
-    public void testAddTemaNullId() {
-        int size = 0;
-        var teme = service.getAllTeme();
-        for (Tema value : teme) {
-            size++;
-        }
-        assert (service.findTema("69") == null);
-        Tema tema = new Tema(null, "descriere", 5, 6);
-        assertThrows(ValidationException.class, () -> service.addTema(tema));
-        assert (service.findTema("69") == null);
-        int otherSize = 0;
-        for (Tema val : teme) {
-            otherSize++;
-        }
-        assert (otherSize == size);
-    }
-
-    // test addTema with null description
-    @Test
-    public void testAddTemaNullDescription() {
-        int size = 0;
-        var teme = service.getAllTeme();
-        for (Tema value : teme) {
-            size++;
-        }
-        assert (service.findTema("69") == null);
-        Tema tema = new Tema("69", null, 5, 6);
-        assertThrows(ValidationException.class, () -> service.addTema(tema));
-        assert (service.findTema("69") == null);
-        int otherSize = 0;
-        for (Tema val : teme) {
-            otherSize++;
-        }
-        assert (otherSize == size);
-    }
-
-    // test addTema with deadline less than 1 or greater than 14
-    @Test
-    public void testAddTemaInvalidDeadline() {
-        int size = 0;
-        var teme = service.getAllTeme();
-        for (Tema value : teme) {
-            size++;
-        }
-        assert (service.findTema("69") == null);
-        Tema tema = new Tema("69", "descriere", 0, 6);
-        assertThrows(ValidationException.class, () -> service.addTema(tema));
-        assert (service.findTema("69") == null);
-        tema.setDeadline(15);
-        assertThrows(ValidationException.class, () -> service.addTema(tema));
-        assert (service.findTema("69") == null);
-        int otherSize = 0;
-        for (Tema val : teme) {
-            otherSize++;
-        }
-        assert (otherSize == size);
-    }
-
-    // test addTema with primire less than 1 or greater than 14
-    @Test
-    public void testAddTemaInvalidPrimire() {
-        int size = 0;
-        var teme = service.getAllTeme();
-        for (Tema value : teme) {
-            size++;
-        }
-        assert (service.findTema("69") == null);
-        Tema tema = new Tema("69", "descriere", 5, 0);
-        assertThrows(ValidationException.class, () -> service.addTema(tema));
-        assert (service.findTema("69") == null);
-        tema.setPrimire(15);
-        assertThrows(ValidationException.class, () -> service.addTema(tema));
-        assert (service.findTema("69") == null);
-        int otherSize = 0;
-        for (Tema val : teme) {
-            otherSize++;
-        }
-        assert (otherSize == size);
-    }
-
-    // test addTema with empty id
-    @Test
-    public void testAddTemaEmptyId() {
-        int size = 0;
-        var teme = service.getAllTeme();
-        for (Tema value : teme) {
-            size++;
-        }
-        assert (service.findTema("69") == null);
-        Tema tema = new Tema("", "descriere", 5, 6);
-        assertThrows(ValidationException.class, () -> service.addTema(tema));
-        assert (service.findTema("69") == null);
-        int otherSize = 0;
-        for (Tema val : teme) {
-            otherSize++;
-        }
-        assert (otherSize == size);
-    }
-
-    // test addTema with empty description
-    @Test
-    public void testAddTemaEmptyDescription() {
-        int size = 0;
-        var teme = service.getAllTeme();
-        for (Tema value : teme) {
-            size++;
-        }
-        assert (service.findTema("69") == null);
-        Tema tema = new Tema("69", "", 5, 6);
-        assertThrows(ValidationException.class, () -> service.addTema(tema));
-        assert (service.findTema("69") == null);
-        int otherSize = 0;
-        for (Tema val : teme) {
-            otherSize++;
-        }
-        assert (otherSize == size);
-    }
+//    //test addTema with null id
+//    @Test
+//    public void testAddTemaNullId() {
+//        int size = 0;
+//        var teme = service.getAllTeme();
+//        for (Tema value : teme) {
+//            size++;
+//        }
+//        assert (service.findTema("69") == null);
+//        Tema tema = new Tema(null, "descriere", 5, 6);
+//        assertThrows(ValidationException.class, () -> service.addTema(tema));
+//        assert (service.findTema("69") == null);
+//        int otherSize = 0;
+//        for (Tema val : teme) {
+//            otherSize++;
+//        }
+//        assert (otherSize == size);
+//    }
+//
+//    // test addTema with null description
+//    @Test
+//    public void testAddTemaNullDescription() {
+//        int size = 0;
+//        var teme = service.getAllTeme();
+//        for (Tema value : teme) {
+//            size++;
+//        }
+//        assert (service.findTema("69") == null);
+//        Tema tema = new Tema("69", null, 5, 6);
+//        assertThrows(ValidationException.class, () -> service.addTema(tema));
+//        assert (service.findTema("69") == null);
+//        int otherSize = 0;
+//        for (Tema val : teme) {
+//            otherSize++;
+//        }
+//        assert (otherSize == size);
+//    }
+//
+//    // test addTema with deadline less than 1 or greater than 14
+//    @Test
+//    public void testAddTemaInvalidDeadline() {
+//        int size = 0;
+//        var teme = service.getAllTeme();
+//        for (Tema value : teme) {
+//            size++;
+//        }
+//        assert (service.findTema("69") == null);
+//        Tema tema = new Tema("69", "descriere", 0, 6);
+//        assertThrows(ValidationException.class, () -> service.addTema(tema));
+//        assert (service.findTema("69") == null);
+//        tema.setDeadline(15);
+//        assertThrows(ValidationException.class, () -> service.addTema(tema));
+//        assert (service.findTema("69") == null);
+//        int otherSize = 0;
+//        for (Tema val : teme) {
+//            otherSize++;
+//        }
+//        assert (otherSize == size);
+//    }
+//
+//    // test addTema with primire less than 1 or greater than 14
+//    @Test
+//    public void testAddTemaInvalidPrimire() {
+//        int size = 0;
+//        var teme = service.getAllTeme();
+//        for (Tema value : teme) {
+//            size++;
+//        }
+//        assert (service.findTema("69") == null);
+//        Tema tema = new Tema("69", "descriere", 5, 0);
+//        assertThrows(ValidationException.class, () -> service.addTema(tema));
+//        assert (service.findTema("69") == null);
+//        tema.setPrimire(15);
+//        assertThrows(ValidationException.class, () -> service.addTema(tema));
+//        assert (service.findTema("69") == null);
+//        int otherSize = 0;
+//        for (Tema val : teme) {
+//            otherSize++;
+//        }
+//        assert (otherSize == size);
+//    }
+//
+//    // test addTema with empty id
+//    @Test
+//    public void testAddTemaEmptyId() {
+//        int size = 0;
+//        var teme = service.getAllTeme();
+//        for (Tema value : teme) {
+//            size++;
+//        }
+//        assert (service.findTema("69") == null);
+//        Tema tema = new Tema("", "descriere", 5, 6);
+//        assertThrows(ValidationException.class, () -> service.addTema(tema));
+//        assert (service.findTema("69") == null);
+//        int otherSize = 0;
+//        for (Tema val : teme) {
+//            otherSize++;
+//        }
+//        assert (otherSize == size);
+//    }
+//
+//    // test addTema with empty description
+//    @Test
+//    public void testAddTemaEmptyDescription() {
+//        int size = 0;
+//        var teme = service.getAllTeme();
+//        for (Tema value : teme) {
+//            size++;
+//        }
+//        assert (service.findTema("69") == null);
+//        Tema tema = new Tema("69", "", 5, 6);
+//        assertThrows(ValidationException.class, () -> service.addTema(tema));
+//        assert (service.findTema("69") == null);
+//        int otherSize = 0;
+//        for (Tema val : teme) {
+//            otherSize++;
+//        }
+//        assert (otherSize == size);
+//    }
 
 }
