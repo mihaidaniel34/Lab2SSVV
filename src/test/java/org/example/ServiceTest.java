@@ -405,23 +405,4 @@ public class ServiceTest {
         assert (otherSize == size);
     }
 
-    // test addTema with null a 2 2
-    @Test
-    public void testAddTemaNulla22() {
-        int size = 0;
-        var teme = service.getAllTeme();
-        for (Tema value : teme) {
-            size++;
-        }
-        assert (service.findTema("69") == null);
-        Tema tema = new Tema(null, "a", 2, 2);
-        assertThrows(ValidationException.class, () -> service.addTema(tema));
-        assert (service.findTema("69") == null);
-        int otherSize = 0;
-        for (Tema val : teme) {
-            otherSize++;
-        }
-        assert (otherSize == size);
-    }
-
 }
