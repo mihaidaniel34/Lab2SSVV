@@ -166,7 +166,7 @@ public class Service {
      * @param feedback - feedback-ul notei
      * @return null daca nota a fost adaugata sau nota daca aceasta exista deja
      */
-    public double addNota(Nota nota, String feedback){
+    public Double addNota(Nota nota, String feedback){
         notaValidator.validate(nota);
         Student student = studentFileRepository.findOne(nota.getIdStudent());
         Tema tema = temaFileRepository.findOne(nota.getIdTema());
@@ -179,7 +179,10 @@ public class Service {
                 throw new ValidationException("Studentul nu mai poate preda aceasta tema!");
             }
         }
-        notaFileRepository.save(nota);
+        Nota notaSaved = notaFileRepository.save(nota);
+        if (notaSaved != null) {
+            return nota.getNota();
+        }
         String filename = "fisiere/" + student.getNume() + ".txt";
         try(BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filename, true))){
             bufferedWriter.write("\nTema: " + tema.getID());
@@ -191,7 +194,7 @@ public class Service {
         } catch (IOException exception){
             throw new ValidationException(exception.getMessage());
         }
-        return nota.getNota();
+        return null;
     }
 
     /**
